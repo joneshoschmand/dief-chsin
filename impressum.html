@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Impressum · Einfach mal reden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F3ECDE; --bg-alt: #E8DFCB; --ink: #23201A; --ink-soft: #5A5346;
+  --ink-mute: #8A826F; --sage: #4D5C38; --sage-deep: #35421F;
+  --line: rgba(35,32,26,0.14); --line-soft: rgba(35,32,26,0.08);
+  --serif: 'Fraunces', Georgia, serif; --sans: 'Manrope', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans); font-size: 17px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+}
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  opacity: 0.3; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.14 0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+a { color: var(--sage); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--sage-deep); }
+::selection { background: var(--sage); color: var(--bg); }
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+.topbar {
+  background: var(--sage-deep); color: var(--bg);
+  padding: 0.6rem 1.5rem; font-size: 0.82rem; text-align: center;
+}
+.topbar a { color: #E8DFCB; }
+
+.nav {
+  padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--line-soft);
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1320px; margin: 0 auto;
+}
+.brand {
+  font-family: var(--serif); font-weight: 300; font-size: 1.35rem;
+  color: var(--ink); text-decoration: none;
+}
+.brand em { font-style: italic; color: var(--sage); }
+.back {
+  font-size: 0.88rem; color: var(--ink-soft); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: color 0.3s;
+}
+.back:hover { color: var(--sage); }
+
+header.doc-header {
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--sage);
+  display: inline-flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; }
+h1 {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1;
+  letter-spacing: -0.02em; margin: 1.2rem 0 0.5rem;
+}
+h1 em { font-style: italic; color: var(--sage); }
+.subtitle { color: var(--ink-soft); font-size: 1.05rem; max-width: 55ch; }
+
+main { padding: clamp(3rem, 6vw, 5rem) 0 clamp(5rem, 10vw, 8rem); }
+
+h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2;
+  letter-spacing: -0.01em; margin-top: 3rem; margin-bottom: 1rem;
+  padding-bottom: 0.8rem; border-bottom: 1px solid var(--line-soft);
+}
+h3 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 1.15rem; margin-top: 1.8rem; margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+p { margin-bottom: 1rem; color: var(--ink-soft); max-width: 68ch; }
+strong { color: var(--ink); font-weight: 600; }
+
+.info-block {
+  background: var(--bg-alt); padding: 1.5rem 1.8rem; margin: 1.5rem 0;
+  border-left: 2px solid var(--sage); border-radius: 2px;
+}
+.info-block p { margin-bottom: 0.4rem; color: var(--ink); }
+.info-block p:last-child { margin-bottom: 0; }
+.info-block strong { display: block; font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 0.4rem; }
+
+.placeholder {
+  background: rgba(181, 99, 58, 0.08);
+  border: 1px dashed rgba(181, 99, 58, 0.4);
+  padding: 1rem 1.2rem; border-radius: 2px;
+  font-size: 0.88rem; color: #8b4a2b; margin: 1rem 0;
+}
+.placeholder::before { content: '⚠  '; }
+
+footer {
+  padding: 2.5rem 0; border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-mute);
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
+}
+footer a { color: var(--ink-soft); }
+footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>Im Notfall:</strong> Notruf <a href="tel:112">112</a> ·
+  Telefonseelsorge <a href="tel:08001110111">0800 111 0 111</a> (24 / 7)
+</div>
+
+<div class="nav">
+  <a href="index.html" class="brand">einfach mal <em>reden</em></a>
+  <a href="index.html" class="back">← Zurück zur Startseite</a>
+</div>
+
+<div class="wrap">
+
+<header class="doc-header">
+  <span class="eyebrow">Rechtliches</span>
+  <h1><em>Impressum</em></h1>
+  <p class="subtitle">
+    Angaben gemäß § 5 TMG (Telemediengesetz) sowie § 18 Abs. 2 MStV
+    (Medienstaatsvertrag).
+  </p>
+</header>
+
+<main>
+
+<div class="placeholder">
+  <strong>Hinweis für den Websiteinhaber:</strong> Bitte die folgenden
+  Platzhalter durch Ihre tatsächlichen Angaben ersetzen, bevor die
+  Website online geht. Die hier aufgeführten Pflichtangaben müssen
+  vollständig, korrekt und leicht erkennbar sein.
+</div>
+
+<section>
+  <h2>Diensteanbieter</h2>
+  <div class="info-block">
+    <p><strong>Anbieter</strong></p>
+    <p>[Vor- und Nachname der Inhaberin]</p>
+    <p>[Straße und Hausnummer]</p>
+    <p>[PLZ Ort]</p>
+    <p>Deutschland</p>
+  </div>
+</section>
+
+<section>
+  <h2>Kontakt</h2>
+  <div class="info-block">
+    <p><strong>Telefon</strong></p>
+    <p>[+49 ... / Telefonnummer]</p>
+  </div>
+  <div class="info-block">
+    <p><strong>E-Mail</strong></p>
+    <p><a href="mailto:kontakt@einfachmalreden.com">kontakt@einfachmalreden.com</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+  <h3>Berufsbezeichnung</h3>
+  <p>Heilpraktikerin für Psychotherapie (verliehen in Deutschland)</p>
+
+  <h3>Zuständige Aufsichtsbehörde</h3>
+  <p>
+    [Zuständiges Gesundheitsamt — z. B. Gesundheitsamt der Stadt Aachen /
+    StädteRegion Aachen, vollständige Adresse einfügen]
+  </p>
+
+  <h3>Berufsrechtliche Grundlagen</h3>
+  <p>
+    Heilpraktikergesetz (HeilprG) und Durchführungsverordnung zum
+    Heilpraktikergesetz (DVO-HeilprG). Einsehbar unter:
+    <a href="https://www.gesetze-im-internet.de/heilprg/" target="_blank" rel="noopener">
+    gesetze-im-internet.de/heilprg</a>.
+  </p>
+</section>
+
+<section>
+  <h2>Umsatzsteuer</h2>
+  <p>
+    Heilbehandlungen im Sinne des § 4 Nr. 14 UStG sind von der
+    Umsatzsteuer befreit. Eine Umsatzsteuer-Identifikationsnummer
+    besteht daher nicht.
+  </p>
+  <p>
+    [Alternativ, falls zutreffend: Umsatzsteuer-Identifikationsnummer
+    gemäß § 27 a UStG: DE XXXXXXXXX.]
+  </p>
+</section>
+
+<section>
+  <h2>Berufshaftpflichtversicherung</h2>
+  <div class="info-block">
+    <p><strong>Versicherer</strong></p>
+    <p>[Name der Versicherungsgesellschaft]</p>
+    <p>[Anschrift der Versicherungsgesellschaft]</p>
+    <p style="margin-top:0.6rem;"><strong style="margin-top:0;">Geltungsraum der Versicherung</strong></p>
+    <p>Deutschland / [ggf. erweitern]</p>
+  </div>
+</section>
+
+<section>
+  <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+  <div class="info-block">
+    <p>[Vor- und Nachname]</p>
+    <p>[Anschrift — identisch mit Diensteanbieter]</p>
+  </div>
+</section>
+
+<section>
+  <h2>Streitschlichtung</h2>
+  <p>
+    Die Europäische Kommission stellt eine Plattform zur
+    Online-Streitbeilegung (OS) bereit:
+    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+    https://ec.europa.eu/consumers/odr/</a>.
+  </p>
+  <p>
+    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
+    vor einer Verbraucherschlichtungsstelle teilzunehmen.
+  </p>
+</section>
+
+<section>
+  <h2>Haftung für Inhalte</h2>
+  <p>
+    Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte
+    auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
+    §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
+    übermittelte oder gespeicherte fremde Informationen zu überwachen oder
+    nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+  </p>
+  <p>
+    Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen
+    nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche
+    Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten
+    Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen
+    werden wir diese Inhalte umgehend entfernen.
+  </p>
+</section>
+
+<section>
+  <h2>Haftung für Links</h2>
+  <p>
+    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte
+    wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte
+    auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist
+    stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+  </p>
+  <p>
+    Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+    Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
+    Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der
+    verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
+    Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen
+    werden wir derartige Links umgehend entfernen.
+  </p>
+</section>
+
+<section>
+  <h2>Urheberrecht</h2>
+  <p>
+    Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen
+    Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+    Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+    Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung der
+    jeweiligen Autorin bzw. Erstellerin.
+  </p>
+  <p>
+    Downloads und Kopien dieser Seite sind nur für den privaten, nicht
+    kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite
+    nicht von der Betreiberin erstellt wurden, werden die Urheberrechte
+    Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung
+    aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei
+    Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte
+    umgehend entfernen.
+  </p>
+</section>
+
+<section>
+  <h2>Wichtiger Hinweis</h2>
+  <p>
+    Die auf dieser Website angebotenen Leistungen stellen keinen Ersatz
+    für eine akute ärztliche oder psychotherapeutische Behandlung dar.
+    Bei akuten psychischen Notfällen wenden Sie sich bitte umgehend an
+    den Notruf (112), eine psychiatrische Klinik oder die Telefonseelsorge
+    (<a href="tel:08001110111">0800 111 0 111</a>, rund um die Uhr erreichbar).
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <span>© <span id="y"></span> Einfach mal reden</span>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+</footer>
+
+</div>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

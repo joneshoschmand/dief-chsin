@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Datenschutz · Einfach mal reden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F3ECDE; --bg-alt: #E8DFCB; --ink: #23201A; --ink-soft: #5A5346;
+  --ink-mute: #8A826F; --sage: #4D5C38; --sage-deep: #35421F;
+  --line: rgba(35,32,26,0.14); --line-soft: rgba(35,32,26,0.08);
+  --serif: 'Fraunces', Georgia, serif; --sans: 'Manrope', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans); font-size: 17px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+}
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  opacity: 0.3; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.14 0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+a { color: var(--sage); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--sage-deep); }
+::selection { background: var(--sage); color: var(--bg); }
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+.topbar {
+  background: var(--sage-deep); color: var(--bg);
+  padding: 0.6rem 1.5rem; font-size: 0.82rem; text-align: center;
+}
+.topbar a { color: #E8DFCB; }
+
+.nav {
+  padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--line-soft);
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1320px; margin: 0 auto;
+}
+.brand {
+  font-family: var(--serif); font-weight: 300; font-size: 1.35rem;
+  color: var(--ink); text-decoration: none;
+}
+.brand em { font-style: italic; color: var(--sage); }
+.back {
+  font-size: 0.88rem; color: var(--ink-soft); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: color 0.3s;
+}
+.back:hover { color: var(--sage); }
+
+header.doc-header {
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--sage);
+  display: inline-flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; }
+h1 {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1;
+  letter-spacing: -0.02em; margin: 1.2rem 0 0.5rem;
+}
+h1 em { font-style: italic; color: var(--sage); }
+.subtitle { color: var(--ink-soft); font-size: 1.05rem; max-width: 60ch; }
+
+.toc {
+  background: var(--bg-alt); padding: 1.8rem 2rem; border-radius: 2px;
+  margin: 2.5rem 0; border-left: 2px solid var(--sage);
+}
+.toc h2 {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+  margin: 0 0 1rem; padding: 0; border: none;
+  letter-spacing: 0.02em;
+}
+.toc ol { padding-left: 1.5rem; margin: 0; font-size: 0.92rem; }
+.toc li { margin-bottom: 0.4rem; color: var(--ink-soft); }
+.toc a { color: var(--ink); text-decoration: none; }
+.toc a:hover { color: var(--sage); text-decoration: underline; }
+
+main { padding: 1rem 0 clamp(5rem, 10vw, 8rem); }
+
+h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2;
+  letter-spacing: -0.01em; margin-top: 3.5rem; margin-bottom: 1rem;
+  padding-bottom: 0.8rem; border-bottom: 1px solid var(--line-soft);
+  scroll-margin-top: 2rem;
+}
+h3 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 1.15rem; margin-top: 1.8rem; margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+p { margin-bottom: 1rem; color: var(--ink-soft); max-width: 70ch; }
+ul { margin: 0.5rem 0 1.2rem 1.3rem; color: var(--ink-soft); }
+ul li { margin-bottom: 0.4rem; }
+strong { color: var(--ink); font-weight: 600; }
+
+.info-block {
+  background: var(--bg-alt); padding: 1.5rem 1.8rem; margin: 1.5rem 0;
+  border-left: 2px solid var(--sage); border-radius: 2px;
+}
+.info-block p { margin-bottom: 0.4rem; color: var(--ink); }
+.info-block p:last-child { margin-bottom: 0; }
+.info-block strong { display: block; font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 0.4rem; }
+
+.placeholder {
+  background: rgba(181, 99, 58, 0.08);
+  border: 1px dashed rgba(181, 99, 58, 0.4);
+  padding: 1rem 1.2rem; border-radius: 2px;
+  font-size: 0.88rem; color: #8b4a2b; margin: 1rem 0;
+}
+.placeholder::before { content: '⚠  '; }
+
+footer {
+  padding: 2.5rem 0; border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-mute);
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
+}
+footer a { color: var(--ink-soft); }
+footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>Im Notfall:</strong> Notruf <a href="tel:112">112</a> ·
+  Telefonseelsorge <a href="tel:08001110111">0800 111 0 111</a> (24 / 7)
+</div>
+
+<div class="nav">
+  <a href="index.html" class="brand">einfach mal <em>reden</em></a>
+  <a href="index.html" class="back">← Zurück zur Startseite</a>
+</div>
+
+<div class="wrap">
+
+<header class="doc-header">
+  <span class="eyebrow">Rechtliches</span>
+  <h1><em>Datenschutz</em></h1>
+  <p class="subtitle">
+    Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.
+    Diese Erklärung informiert Sie nach Art. 13 DSGVO über Art, Umfang
+    und Zweck der Verarbeitung personenbezogener Daten auf dieser Website.
+  </p>
+</header>
+
+<div class="placeholder">
+  <strong>Hinweis für den Websiteinhaber:</strong> Diese Datenschutzerklärung
+  ist eine rechtssichere Vorlage. Bitte alle Platzhalter an Ihre tatsächlichen
+  Gegebenheiten anpassen (Kontaktdaten, tatsächlich eingesetzte Dienste,
+  Hosting-Provider). Bei konkreten rechtlichen Fragen empfehle ich
+  eine Prüfung durch eine Fachanwältin / einen Fachanwalt für IT-Recht.
+</div>
+
+<nav class="toc" aria-label="Inhaltsverzeichnis">
+  <h2>Inhalt</h2>
+  <ol>
+    <li><a href="#verantwortlich">Verantwortlicher</a></li>
+    <li><a href="#rechte">Ihre Rechte als betroffene Person</a></li>
+    <li><a href="#hosting">Hosting und Server-Logfiles</a></li>
+    <li><a href="#cookies">Cookies</a></li>
+    <li><a href="#kontakt">Kontaktaufnahme und Kontaktformular</a></li>
+    <li><a href="#behandlung">Daten im Rahmen der Behandlung</a></li>
+    <li><a href="#fonts">Google Fonts (lokal / extern)</a></li>
+    <li><a href="#aufsicht">Beschwerderecht bei der Aufsichtsbehörde</a></li>
+    <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="verantwortlich">
+  <h2>1. Verantwortlicher</h2>
+  <p>
+    Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne
+    der Datenschutz-Grundverordnung (DSGVO) ist:
+  </p>
+  <div class="info-block">
+    <p><strong>Kontakt</strong></p>
+    <p>[Vor- und Nachname]</p>
+    <p>[Straße und Hausnummer]</p>
+    <p>[PLZ Ort]</p>
+    <p>Telefon: [Telefonnummer]</p>
+    <p>E-Mail: <a href="mailto:kontakt@einfachmalreden.com">kontakt@einfachmalreden.com</a></p>
+  </div>
+</section>
+
+<section id="rechte">
+  <h2>2. Ihre Rechte als betroffene Person</h2>
+  <p>Nach der DSGVO stehen Ihnen die folgenden Rechte zu:</p>
+  <ul>
+    <li><strong>Auskunft</strong> über die Sie betreffenden gespeicherten Daten (Art. 15 DSGVO)</li>
+    <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+    <li><strong>Löschung</strong> Ihrer gespeicherten Daten (Art. 17 DSGVO)</li>
+    <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+    <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+    <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+    <li><strong>Widerruf</strong> einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+  </ul>
+  <p>
+    Zur Ausübung Ihrer Rechte genügt eine formlose Mitteilung an die
+    oben angegebenen Kontaktdaten.
+  </p>
+</section>
+
+<section id="hosting">
+  <h2>3. Hosting und Server-Logfiles</h2>
+  <p>
+    Diese Website wird bei einem externen Dienstleister gehostet.
+    Die personenbezogenen Daten, die auf dieser Website erfasst werden,
+    werden auf den Servern des Hosters gespeichert.
+  </p>
+
+  <div class="info-block">
+    <p><strong>Hosting-Provider</strong></p>
+    <p>[Name des Hosters]</p>
+    <p>[Anschrift des Hosters]</p>
+  </div>
+
+  <p>
+    Der Hoster erhebt in sogenannten Logfiles folgende Daten,
+    die Ihr Browser übermittelt:
+  </p>
+  <ul>
+    <li>IP-Adresse (gekürzt / anonymisiert, soweit möglich)</li>
+    <li>Datum und Uhrzeit des Zugriffs</li>
+    <li>Aufgerufene Seite / Name der angeforderten Datei</li>
+    <li>Referrer-URL (die zuvor besuchte Seite)</li>
+    <li>Verwendeter Browser und Betriebssystem</li>
+    <li>HTTP-Statuscode und übertragene Datenmenge</li>
+  </ul>
+  <p>
+    Die Erhebung dieser Daten ist technisch notwendig, um die Website
+    bereitzustellen, die Sicherheit zu gewährleisten und technische
+    Fehler analysieren zu können.
+  </p>
+  <p>
+    <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+    (berechtigtes Interesse an einer technisch einwandfreien Darstellung
+    und Sicherheit der Website).
+  </p>
+  <p>
+    <strong>Speicherdauer:</strong> Die Logfiles werden für maximal
+    [z. B. 14 Tage / 30 Tage] gespeichert und anschließend gelöscht,
+    sofern keine sicherheitsrelevanten Vorfälle eine längere
+    Aufbewahrung erfordern.
+  </p>
+</section>
+
+<section id="cookies">
+  <h2>4. Cookies</h2>
+  <p>
+    Cookies sind kleine Textdateien, die beim Besuch einer Website auf
+    Ihrem Endgerät gespeichert werden. Diese Website verwendet ausschließlich
+    technisch notwendige Cookies, die für den grundlegenden Betrieb der
+    Seite erforderlich sind (z. B. zum Speichern Ihrer Cookie-Einstellungen).
+  </p>
+  <p>
+    Darüber hinausgehende Cookies — etwa zur Reichweitenmessung —
+    setzen wir nur, wenn Sie uns hierfür eine ausdrückliche Einwilligung
+    erteilt haben (Opt-in über den Cookie-Banner).
+  </p>
+  <p>
+    <strong>Rechtsgrundlage notwendiger Cookies:</strong>
+    § 25 Abs. 2 Nr. 2 TTDSG i. V. m. Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+  <p>
+    <strong>Rechtsgrundlage optionaler Cookies:</strong>
+    § 25 Abs. 1 TTDSG i. V. m. Art. 6 Abs. 1 lit. a DSGVO
+    (Einwilligung).
+  </p>
+  <p>
+    Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft
+    widerrufen, indem Sie Ihre Auswahl über die
+    „Cookie-Einstellungen" im Footer anpassen oder die Cookies in Ihrem
+    Browser löschen.
+  </p>
+</section>
+
+<section id="kontakt">
+  <h2>5. Kontaktaufnahme und Kontaktformular</h2>
+  <p>
+    Wenn Sie mir per Kontaktformular, E-Mail oder Telefon Anfragen zukommen
+    lassen, werden Ihre Angaben zum Zweck der Bearbeitung der Anfrage und
+    für den Fall von Anschlussfragen bei mir gespeichert.
+  </p>
+  <p>
+    Verarbeitet werden insbesondere:
+  </p>
+  <ul>
+    <li>Name</li>
+    <li>E-Mail-Adresse</li>
+    <li>ggf. Telefonnummer</li>
+    <li>Inhalt Ihrer Nachricht</li>
+  </ul>
+  <p>
+    <strong>Rechtsgrundlage:</strong>
+    Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) und Art. 6 Abs. 1 lit. b DSGVO,
+    sofern die Anfrage der Anbahnung oder Durchführung eines Vertrages dient.
+  </p>
+  <p>
+    <strong>Speicherdauer:</strong>
+    Ihre Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt
+    und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+    Sie können Ihre Einwilligung jederzeit widerrufen.
+  </p>
+  <p>
+    <strong>Hinweis:</strong> Bitte senden Sie keine besonders sensiblen
+    Gesundheitsdaten über das Kontaktformular oder per unverschlüsselter
+    E-Mail. Solche Informationen klären wir gerne persönlich oder
+    telefonisch.
+  </p>
+</section>
+
+<section id="behandlung">
+  <h2>6. Daten im Rahmen der Behandlung</h2>
+  <p>
+    Im Rahmen einer therapeutischen Begleitung, psychologischen Beratung
+    oder eines Coachings verarbeite ich personenbezogene Daten — darunter
+    ggf. auch besondere Kategorien personenbezogener Daten
+    (Gesundheitsdaten im Sinne von Art. 9 DSGVO).
+  </p>
+  <p>
+    <strong>Zweck:</strong> Durchführung der Behandlung, Dokumentation,
+    Abrechnung und Erfüllung gesetzlicher Pflichten (z. B. Steuerrecht).
+  </p>
+  <p>
+    <strong>Rechtsgrundlage:</strong>
+    Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 9 Abs. 2 lit. h DSGVO
+    i. V. m. § 22 Abs. 1 Nr. 1 lit. b BDSG (Gesundheitsvorsorge durch
+    Angehörige eines Heilberufs).
+  </p>
+  <p>
+    <strong>Schweigepflicht:</strong> Als Heilpraktikerin unterliege ich
+    der beruflichen Schweigepflicht gem. § 203 StGB. Eine Weitergabe Ihrer
+    Daten erfolgt nur mit Ihrer ausdrücklichen Einwilligung oder aufgrund
+    gesetzlicher Verpflichtung.
+  </p>
+  <p>
+    <strong>Aufbewahrung:</strong> Behandlungsunterlagen werden entsprechend
+    den berufsrechtlichen und steuerrechtlichen Vorgaben aufbewahrt
+    (i. d. R. 10 Jahre gem. § 147 AO) und anschließend datenschutzgerecht
+    vernichtet.
+  </p>
+</section>
+
+<section id="fonts">
+  <h2>7. Google Fonts</h2>
+  <p>
+    Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte
+    Google Fonts. Bei Aufruf einer Seite lädt Ihr Browser die benötigten
+    Schriften in den Browser-Cache, um Texte und Schriftarten korrekt
+    anzuzeigen.
+  </p>
+  <p>
+    Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu
+    Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber,
+    dass über Ihre IP-Adresse unsere Website aufgerufen wurde.
+  </p>
+  <p>
+    <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+    (berechtigtes Interesse an einer ansprechenden und einheitlichen
+    Darstellung unseres Online-Angebots).
+  </p>
+  <p>
+    <strong>Empfohlen:</strong> Um Ihre Privatsphäre optimal zu schützen,
+    können die Schriften auch lokal eingebunden werden (self-hosting) —
+    dann entfällt jede Datenübermittlung an Dritte. Weitere Informationen
+    zu Google Fonts finden Sie unter
+    <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">developers.google.com/fonts/faq</a>
+    sowie in der Datenschutzerklärung von Google:
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+  </p>
+</section>
+
+<section id="aufsicht">
+  <h2>8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+  <p>
+    Unbeschadet anderweitiger Rechtsbehelfe haben Sie gem. Art. 77 DSGVO
+    das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren,
+    wenn Sie der Ansicht sind, dass die Verarbeitung Sie betreffender
+    personenbezogener Daten gegen die DSGVO verstößt.
+  </p>
+  <div class="info-block">
+    <p><strong>Zuständige Aufsichtsbehörde</strong></p>
+    <p>Landesbeauftragte für Datenschutz und Informationsfreiheit</p>
+    <p>Nordrhein-Westfalen</p>
+    <p>Kavalleriestraße 2 – 4</p>
+    <p>40213 Düsseldorf</p>
+    <p><a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a></p>
+  </div>
+</section>
+
+<section id="aenderungen">
+  <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+  <p>
+    Ich behalte mir vor, diese Datenschutzerklärung gelegentlich anzupassen,
+    damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um
+    Änderungen meiner Leistungen in der Datenschutzerklärung umzusetzen.
+    Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
+  </p>
+  <p>
+    <strong>Stand:</strong> <span id="date"></span>
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <span>© <span id="y"></span> Einfach mal reden</span>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+</footer>
+
+</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.getElementById('date').textContent = new Date().toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+</script>
+</body>
+</html>
